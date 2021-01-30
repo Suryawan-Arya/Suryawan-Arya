@@ -97,7 +97,9 @@ public class Customer extends User {
         requestQueue.add(stringRequest);
     }
 
-    void getUserData(Context con, int userId){
+    ArrayList<String> getUserData(Context con, int userId){
+    	ArrayList<String> userData = new ArrayList<>();
+
     	StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_USER,
     		new Response.Listener<String>(){
     			@Override
@@ -119,6 +121,8 @@ public class Customer extends User {
     			}
     		});
     	RequestQueue requestQueue = Volley.newRequestQueue(context);
-    	requestQueue.add(stringRequest)
+    	requestQueue.add(stringRequest);
+
+    	return userData;
     }
 }
